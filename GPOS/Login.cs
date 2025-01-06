@@ -42,7 +42,7 @@ namespace GPOS
                 MBox1.Show("Enter UserName and Password");
 
             }
-            else if (username == "sammyketewa" && pass == "ahavah1")
+            else if (username == "evansvic" && pass == "copper1")
             {
                 Mainmenu Obj = new Mainmenu();
                 Obj.Show();
@@ -78,6 +78,11 @@ namespace GPOS
 
         private void showpwd_CheckedChanged(object sender, EventArgs e)
         {
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
         /*
 private void ViewPassword_CheckedChanged(object sender, EventArgs e)

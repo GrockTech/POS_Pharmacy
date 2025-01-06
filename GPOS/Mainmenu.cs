@@ -241,33 +241,7 @@ namespace GPOS
         }
         */
 
-        public void CheckMonthlySales()
-        {
-            decimal totalSales = 0m;
-            int totalQuantity = 0;
-
-            using (MySqlConnection con = new MySqlConnection("server=localhost; database=posdb; username=root; password=;"))
-            {
-                string query = "SELECT SUM(Amt) AS TotalSales,  FROM BillT WHERE MONTH(BDate) = MONTH(GETDATE()) AND YEAR(BDate) = YEAR(GETDATE())";
-
-                using (MySqlCommand cmd = new MySqlCommand(query, con))
-                {
-                    Con.Open();
-
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
-                            totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
-                        }
-                    }
-                }
-            }
-
-            MessageBox.Show($"Total Sales for This Month: {totalSales:C}\nTotal Quantity Sold: {totalQuantity}", "Monthly Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
+        
         private void button1_Click(object sender, EventArgs e)
         {
             CheckDailySales();

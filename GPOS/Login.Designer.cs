@@ -103,7 +103,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Tahoma", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(185, 472);
+            label5.Location = new Point(185, 464);
             label5.Name = "label5";
             label5.Size = new Size(134, 18);
             label5.TabIndex = 33;
@@ -182,6 +182,7 @@
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
+            Load += Login_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();

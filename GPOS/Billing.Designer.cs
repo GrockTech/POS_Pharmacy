@@ -80,6 +80,9 @@
             button4 = new Button();
             label4 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            textBox1 = new TextBox();
+            textBox2 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -179,7 +182,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(74, 27);
+            label1.Location = new Point(74, 13);
             label1.Name = "label1";
             label1.Size = new Size(59, 20);
             label1.TabIndex = 88;
@@ -189,7 +192,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(32, 16);
+            pictureBox1.Location = new Point(32, 5);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(36, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -253,7 +256,7 @@
             // 
             CusNameCB.Location = new Point(32, 180);
             CusNameCB.Name = "CusNameCB";
-            CusNameCB.Size = new Size(298, 23);
+            CusNameCB.Size = new Size(186, 23);
             CusNameCB.TabIndex = 96;
             CusNameCB.TextChanged += SupName_TextChanged;
             // 
@@ -263,7 +266,7 @@
             CusIDCB.FormattingEnabled = true;
             CusIDCB.Location = new Point(32, 128);
             CusIDCB.Name = "CusIDCB";
-            CusIDCB.Size = new Size(298, 25);
+            CusIDCB.Size = new Size(186, 25);
             CusIDCB.TabIndex = 101;
             CusIDCB.Text = "Customer ID";
             CusIDCB.SelectedIndexChanged += comboBox1_SelectedIndexChanged;
@@ -276,7 +279,7 @@
             BDateCB.Format = DateTimePickerFormat.Short;
             BDateCB.Location = new Point(32, 225);
             BDateCB.Name = "BDateCB";
-            BDateCB.Size = new Size(298, 23);
+            BDateCB.Size = new Size(186, 23);
             BDateCB.TabIndex = 102;
             // 
             // panel4
@@ -535,7 +538,7 @@
             // 
             Quantity.Location = new Point(107, 265);
             Quantity.Name = "Quantity";
-            Quantity.Size = new Size(223, 23);
+            Quantity.Size = new Size(111, 23);
             Quantity.TabIndex = 96;
             Quantity.TextChanged += SupName_TextChanged;
             // 
@@ -621,7 +624,7 @@
             label4.BackColor = Color.FromArgb(192, 0, 0);
             label4.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.White;
-            label4.Location = new Point(212, 59);
+            label4.Location = new Point(211, 59);
             label4.Name = "label4";
             label4.Size = new Size(105, 15);
             label4.TabIndex = 113;
@@ -638,13 +641,54 @@
             label5.Size = new Size(0, 21);
             label5.TabIndex = 114;
             // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.BackColor = Color.FromArgb(192, 0, 0);
+            label6.Font = new Font("Consolas", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(33, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(154, 15);
+            label6.TabIndex = 113;
+            label6.Text = "Monthly Accom. Sales:";
+            // 
+            // textBox1
+            // 
+            textBox1.BackColor = Color.Teal;
+            textBox1.BorderStyle = BorderStyle.None;
+            textBox1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox1.ForeColor = Color.White;
+            textBox1.Location = new Point(58, 74);
+            textBox1.Multiline = true;
+            textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
+            textBox1.Size = new Size(100, 44);
+            textBox1.TabIndex = 116;
+            textBox1.TextAlign = HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = Color.Teal;
+            textBox2.BorderStyle = BorderStyle.None;
+            textBox2.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            textBox2.ForeColor = Color.White;
+            textBox2.Location = new Point(213, 74);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(100, 45);
+            textBox2.TabIndex = 116;
+            // 
             // Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1057, 521);
+            Controls.Add(textBox2);
+            Controls.Add(textBox1);
             Controls.Add(label5);
+            Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(button4);
             Controls.Add(button1);
@@ -747,6 +791,9 @@
         private Button button4;
         private Label label4;
         private Label label5;
+        private Label label6;
+        private TextBox textBox1;
+        private TextBox textBox2;
         //  private TextBox QtyTb;
     }
 }

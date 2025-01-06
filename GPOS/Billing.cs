@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Mysqlx.Resultset;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace GPOS
 {
@@ -24,8 +25,11 @@ namespace GPOS
             InitializeComponent();
             DisplayProducts();
        CheckDailySales();
+            //   UpdateSalesLabel();
             //getCustomer();
-            //GetCusName();
+         //   //GetCusName();
+           // checkMonthlySales();
+           CheckMonthlySales();
            ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductsDVG.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             ProductsDVG.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
@@ -60,7 +64,7 @@ namespace GPOS
 
                             totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
                          //   textBox1.Text = totalSales.ToString("N2");
-                            label5.Text = "GHS" + " " + totalSales.ToString("N2");
+                            textBox2.Text = "GH₵" + " " + totalSales.ToString("N2");
                             //   totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
                         }
                     }
@@ -183,6 +187,96 @@ namespace GPOS
 
 
         }
+
+        private void UpdateSalesLabel(object sender, EventArgs e)
+        {
+            
+        }
+        /*
+        private void checkMonthlySales()
+        {
+            string connectionString = "server=localhost; database=posdb; username=root; password=;";
+            string query = @"
+            SELECT 
+                DATE_FORMAT(NOW(), '%Y-%m') AS current_month,
+                SUM(Amt) AS accumulated_sales
+            FROM 
+                billt
+            WHERE 
+                DATE_FORMAT(STR_TO_DATE (Bdate, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m');
+        ";
+
+            try
+            {
+                using (MySqlConnection conn = new MySqlConnection(connectionString))
+                {
+                    conn.Open();
+                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
+                    {
+                        object result = cmd.ExecuteScalar();
+                        decimal accumulatedSales = result != DBNull.Value ? Convert.ToDecimal(result) : 0;
+
+                        label7.Text = $"Current Month Sales: {accumulatedSales:C}";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}");
+            }
+
+
+
+        }
+        */
+
+        public void CheckMonthlySales()
+        {
+            decimal totalSales = 0m;
+            int totalQuantity = 0;
+
+            string connectionString = "server=localhost; database=posdb; username=root; password=;";
+            string query = @"
+        SELECT 
+            SUM(Amt) AS TotalSales, 
+            COUNT(*) AS TotalQuantity 
+        FROM 
+            BillT 
+        WHERE 
+            MONTH(BDate) = MONTH(CURDATE()) 
+            AND YEAR(BDate) = YEAR(CURDATE());
+    ";
+
+            try
+            {
+                using (MySqlConnection con = new MySqlConnection(connectionString))
+                {
+                    con.Open();
+
+                    using (MySqlCommand cmd = new MySqlCommand(query, con))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
+                                totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
+                                //  totalSales = label7.Text;
+                                textBox1.Text = "GH₵" + " " + totalSales.ToString("N2");
+
+                              //  label7.Text += totalSales;
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Del()
         {
             SubTotal.Text = "";
@@ -343,7 +437,7 @@ namespace GPOS
         {
             InsertBill();
             CheckDailySales();
-                
+            CheckMonthlySales();    
 
 
             if (bflag == 1)
@@ -573,22 +667,22 @@ namespace GPOS
             //  e.Graphics.DrawString("ENTERPRISE", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(60, 12));
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
             
-            string contact = "Tel:+233 557 569 668 ";
-            string subtitle = "ENTERPRISE";
+            string contact = "Tel:+233 247 557 094 ";
+            string subtitle = "OVER-THE-COUNTER DRUGSTORE";
             //string heading = "ID PRODUCT PRICE QUANTITY TOTAL";
 
             // Get the width of the printable area
             int printableWidth = e.PageBounds.Width;
 
             // Calculate positions to center text
-            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("AHAVAH ODO ", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
+            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("EVANSVIC ", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
             int subtitleX = (printableWidth / 2) - (int)e.Graphics.MeasureString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
             int contactX = (printableWidth / 2) - (int)e.Graphics.MeasureString(contact, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
             //  int headingX = (printableWidth / 2) - (int)e.Graphics.MeasureString(heading, new Font("Century Gothic", 8, FontStyle.Bold)).Width / 2;
             string location = "Loc: Jema, Kintampo South";
             int gap = 40;
             // Draw the text
-            e.Graphics.DrawString("AHAVAH ODO", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
+            e.Graphics.DrawString("EVANSVIC", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
             e.Graphics.DrawString(subtitle, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 22));
             e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX, 32));
            // e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50 + 15, 42));
@@ -678,6 +772,21 @@ namespace GPOS
         {
 
         }
+     /* private void retrieveSale()
+        {
+            string querry =@"SELECT
+  DATE_FORMAT(STR_TO_DATE(transaction_date, '%Y-%m-%d'), '%Y-%m') AS month,
+  SUM(amount) AS total_sales
+FROM
+  sales_transactions
+WHERE
+  YEAR(STR_TO_DATE(transaction_date, '%Y-%m-%d')) = YEAR(CURDATE()) AND
+  MONTH(STR_TO_DATE(transaction_date, '%Y-%m-%d')) = MONTH(CURDATE())
+GROUP BY
+  DATE_FORMAT(STR_TO_DATE(transaction_date, '%Y-%m-%d'), '%Y-%m');
+            ";
+        }
+       */
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
