@@ -83,6 +83,7 @@
             label6 = new Label();
             textBox1 = new TextBox();
             textBox2 = new TextBox();
+            button5 = new Button();
             ((System.ComponentModel.ISupportInitialize)BillDGV).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel3.SuspendLayout();
@@ -488,6 +489,7 @@
             discountTb.Name = "discountTb";
             discountTb.Size = new Size(75, 23);
             discountTb.TabIndex = 106;
+            discountTb.TextChanged += discountTb_TextChanged;
             discountTb.KeyPress += discountTb_KeyPress;
             discountTb.KeyUp += textBox5_KeyUp;
             // 
@@ -679,12 +681,26 @@
             textBox2.Size = new Size(100, 45);
             textBox2.TabIndex = 116;
             // 
+            // button5
+            // 
+            button5.BackColor = Color.Yellow;
+            button5.FlatStyle = FlatStyle.Flat;
+            button5.Font = new Font("Arial", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button5.Location = new Point(682, 48);
+            button5.Name = "button5";
+            button5.Size = new Size(120, 35);
+            button5.TabIndex = 117;
+            button5.Text = "Bill Details";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += button5_Click;
+            // 
             // Billing
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(1057, 521);
+            ClientSize = new Size(1044, 521);
+            Controls.Add(button5);
             Controls.Add(textBox2);
             Controls.Add(textBox1);
             Controls.Add(label5);
@@ -794,6 +810,7 @@
         private Label label6;
         private TextBox textBox1;
         private TextBox textBox2;
+        private Button button5;
         //  private TextBox QtyTb;
     }
 }

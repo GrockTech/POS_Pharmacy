@@ -2072,23 +2072,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Napsta\\.nuget\\packages\\": {},
+    "C:\\Users\\Napster Gidiez\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Windows.old\\Users\\Elva\\source\\repos\\CopperPOS\\GPOS-CSharp\\GPOS\\GPOS.csproj",
+      "projectUniqueName": "C:\\Users\\Napster Gidiez\\source\\repos\\GrockTech\\Copper\\POS_Pharmacy\\GPOS\\GPOS.csproj",
       "projectName": "GPOS",
-      "projectPath": "C:\\Windows.old\\Users\\Elva\\source\\repos\\CopperPOS\\GPOS-CSharp\\GPOS\\GPOS.csproj",
-      "packagesPath": "C:\\Users\\Napsta\\.nuget\\packages\\",
-      "outputPath": "C:\\Windows.old\\Users\\Elva\\source\\repos\\CopperPOS\\GPOS-CSharp\\GPOS\\obj\\",
+      "projectPath": "C:\\Users\\Napster Gidiez\\source\\repos\\GrockTech\\Copper\\POS_Pharmacy\\GPOS\\GPOS.csproj",
+      "packagesPath": "C:\\Users\\Napster Gidiez\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Napster Gidiez\\source\\repos\\GrockTech\\Copper\\POS_Pharmacy\\GPOS\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Napsta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Napster Gidiez\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2115,7 +2115,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net8.0-windows7.0": {
@@ -2157,7 +2157,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
       }
     }
   },

@@ -22,7 +22,13 @@
     <Compile Update="Billing.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="DailySales.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Expiring.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Login.cs">
@@ -38,6 +44,9 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="MBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MonthlyBreakdown.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Properties\SuppliersAdd.cs">

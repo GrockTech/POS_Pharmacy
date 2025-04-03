@@ -173,3 +173,36 @@ C:\Windows.old\Users\Elva\source\repos\CopperPOS\GPOS-CSharp\GPOS\obj\Debug\net8
 C:\Windows.old\Users\Elva\source\repos\CopperPOS\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows7.0\GPOS.pdb
 C:\Windows.old\Users\Elva\source\repos\CopperPOS\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows7.0\GPOS.genruntimeconfig.cache
 C:\Windows.old\Users\Elva\source\repos\CopperPOS\GPOS-CSharp\GPOS\obj\Debug\net8.0-windows7.0\ref\GPOS.dll
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.csproj.AssemblyReference.cache
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS._.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.AddCustomer.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.AddProducts.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.addSup.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Addsuppliers.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Billing.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.DailySales.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Expiring.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Form1.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Login.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.lowstock.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Mainmenu.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.MBox.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.MBox1.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.MonthlyBreakdown.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Properties.Resources.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Properties.SuppliersAdd.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.showValue.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.TrackerNew.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.ViewBill.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.ViewCustomers.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.ViewProducts.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.Viewsuppliers.resources
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.csproj.GenerateResource.cache
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.AssemblyInfoInputs.cache
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.AssemblyInfo.cs
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.csproj.CoreCompileInputs.cache
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.sourcelink.json
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.dll
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\refint\GPOS.dll
+C:\Users\Napster Gidiez\source\repos\GrockTech\Copper\POS_Pharmacy\GPOS\obj\Debug\net8.0-windows7.0\GPOS.pdb

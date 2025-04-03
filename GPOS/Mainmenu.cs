@@ -244,12 +244,17 @@ namespace GPOS
         
         private void button1_Click(object sender, EventArgs e)
         {
-            CheckDailySales();
+            /// CheckDailySales();
+            DailySales ds = new DailySales();
+            ds.Show();
+            ds.TopMost = true;
         }
 
         private void btnMonthlySales_Click(object sender, EventArgs e)
         {
-
+            MonthlyBreakdown mb = new MonthlyBreakdown();
+            mb.Show();
+            mb.TopMost = true;
         }
 
         private async void Mainmenu_Load(object sender, EventArgs e)

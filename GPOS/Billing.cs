@@ -24,13 +24,10 @@ namespace GPOS
         {
             InitializeComponent();
             DisplayProducts();
-       CheckDailySales();
-            //   UpdateSalesLabel();
-            //getCustomer();
-         //   //GetCusName();
-           // checkMonthlySales();
-           CheckMonthlySales();
-           ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            CheckDailySales();
+           
+            CheckMonthlySales();
+            ProductsDVG.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             ProductsDVG.AlternatingRowsDefaultCellStyle.BackColor = Color.LightCyan;
             ProductsDVG.AlternatingRowsDefaultCellStyle.ForeColor = Color.Black;
         }
@@ -63,7 +60,7 @@ namespace GPOS
                         {
 
                             totalSales = reader["TotalSales"] != DBNull.Value ? Convert.ToDecimal(reader["TotalSales"]) : 0m;
-                         //   textBox1.Text = totalSales.ToString("N2");
+                            //   textBox1.Text = totalSales.ToString("N2");
                             textBox2.Text = "GH₵" + " " + totalSales.ToString("N2");
                             //   totalQuantity = reader["TotalQuantity"] != DBNull.Value ? Convert.ToInt32(reader["TotalQuantity"]) : 0;
                         }
@@ -71,10 +68,6 @@ namespace GPOS
                 }
             }
 
-         //   MessageBox.Show($"Total Sales for Today: GH¢ {totalSales}", "Daily Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //  MessageBox.Show($"Daily Sales is GH¢: {totalSales}", "Daily Sales");
-
-            // MBox1.Show("Total Sales for Today: GHS '"++"');
 
         }
 
@@ -123,7 +116,7 @@ namespace GPOS
                 DataTable dt = new DataTable();
                 adapter.Fill(dt);
                 ProductsDVG.DataSource = dt;
-             //   ProductsDVG.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+                //   ProductsDVG.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
             }
             catch (Exception ex)
             {
@@ -175,7 +168,7 @@ namespace GPOS
         string PnameTb;
         //PStock is tracking the remaining stock
         float Pprice;
-        int PStock;
+        float PStock;
         float total;
         int n = 0;
 
@@ -190,45 +183,9 @@ namespace GPOS
 
         private void UpdateSalesLabel(object sender, EventArgs e)
         {
-            
-        }
-        /*
-        private void checkMonthlySales()
-        {
-            string connectionString = "server=localhost; database=posdb; username=root; password=;";
-            string query = @"
-            SELECT 
-                DATE_FORMAT(NOW(), '%Y-%m') AS current_month,
-                SUM(Amt) AS accumulated_sales
-            FROM 
-                billt
-            WHERE 
-                DATE_FORMAT(STR_TO_DATE (Bdate, '%Y-%m') = DATE_FORMAT(NOW(), '%Y-%m');
-        ";
-
-            try
-            {
-                using (MySqlConnection conn = new MySqlConnection(connectionString))
-                {
-                    conn.Open();
-                    using (MySqlCommand cmd = new MySqlCommand(query, conn))
-                    {
-                        object result = cmd.ExecuteScalar();
-                        decimal accumulatedSales = result != DBNull.Value ? Convert.ToDecimal(result) : 0;
-
-                        label7.Text = $"Current Month Sales: {accumulatedSales:C}";
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error: {ex.Message}");
-            }
-
-
 
         }
-        */
+
 
         public void CheckMonthlySales()
         {
@@ -264,7 +221,7 @@ namespace GPOS
                                 //  totalSales = label7.Text;
                                 textBox1.Text = "GH₵" + " " + totalSales.ToString("N2");
 
-                              //  label7.Text += totalSales;
+                                //  label7.Text += totalSales;
                             }
                         }
                     }
@@ -279,7 +236,7 @@ namespace GPOS
 
         private void Del()
         {
-            SubTotal.Text = "";
+            //  SubTotal.Text = "";
             VATtb.Text = "";
             discountTb.Text = "";
             //  SubTotal = 0
@@ -302,72 +259,68 @@ namespace GPOS
 
             Con.Close();
         }
-        //int total = 0;
+       
         private void AddBtn_Click(object sender, EventArgs e)
         {
+            if (keyMain == 0)
             {
-                // Check if no product is selected
-                if (keyMain == 0)
-                {
-                    // Show a message box prompting the user to select a product
-                    MBox1.Show("Select A Product");
-                }
-                else if (Quantity.Text == "")
-                {
-                    MBox1.Show("Enter the quantity");
-                }
-                else if (Convert.ToInt32(Quantity.Text) > PStock)
-                {
-                    MBox1.Show("No Enough Stock");
-                }
-                else
-                {
-                    // Calculate the subtotal for the selected product
-                     float Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
-                    total = total + Subtotal;
-                    //    
-                    //double Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
-                    //total = total + (float)Subtotal;
-
-
-                    // Create a new row for the DataGridView
-                    DataGridViewRow newRow = new DataGridViewRow();
-
-                    // Initialize the new row with the appropriate number of cells for the SupplierDGV
-                    newRow.CreateCells(BillDGV);
-
-                    // Set the value of the first cell to the variable 'n'
-                    // This might be an index or counter, but its definition is not provided in this snippet
-                    newRow.Cells[0].Value = n;
-                // Set the value of the second cell to the product name from the PnameTb TextBox
-                    newRow.Cells[1].Value = PnameTb;
-
-                    // Set the value of the third cell to the quantity from the Quantity TextBox
-                    newRow.Cells[2].Value = Quantity.Text;
-
-                    // Set the value of the fourth cell to the product price (Pprice)
-                    newRow.Cells[3].Value = Pprice;
-
-                    // Set the value of the fifth cell to the calculated subtotal
-                    newRow.Cells[4].Value = Subtotal;
-                    ResetButtonColor();
-                    // Add the new row to the SupplierDGV DataGridView
-                    BillDGV.Rows.Add(newRow);
-                    SubTotal.Text = "" + total;
-                    UpdateQuantity();
-                    n++;
-                    Reset();
-                }
+                MBox1.Show("Select A Product");
             }
+            else if (Quantity.Text == "")
+            {
+                MBox1.Show("Enter the quantity");
+            }
+            else if (float.Parse(Quantity.Text) > PStock)
+            {
+                MBox1.Show("No Enough Stock");
+            }
+            else
+            {
+                // float Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
+                //total += Subtotal;
+                float Subtotal = float.Parse(Quantity.Text) * Pprice;
+                total += Subtotal;
 
+                DataGridViewRow newRow = new DataGridViewRow();
+                newRow.CreateCells(BillDGV);
+                newRow.Cells[0].Value = n;
+                newRow.Cells[1].Value = PnameTb;
+                newRow.Cells[2].Value = float.Parse(Quantity.Text);
+                newRow.Cells[3].Value = Pprice;
+                newRow.Cells[4].Value = Subtotal;
+
+                BillDGV.Rows.Add(newRow); // Add the new row to the DataGridView
+
+                Con.Open();
+                foreach (DataGridViewRow row in BillDGV.Rows)
+                {
+                    if (row.IsNewRow || row.Cells["Column1"].Value == null) continue;
+
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO billdetails(Date, ProductName, Quantity, Price, Subtotal) VALUES(@DT, @PN, @QT, @PP, @ST)", Con))
+                    {
+                        cmd.Parameters.AddWithValue("@DT", DateTime.Now.ToShortDateString());
+                        cmd.Parameters.AddWithValue("@PN", row.Cells[1].Value.ToString());
+                        cmd.Parameters.AddWithValue("@QT", Convert.ToSingle(row.Cells[2].Value));
+                        cmd.Parameters.AddWithValue("@PP", Convert.ToSingle(row.Cells[3].Value));
+                        cmd.Parameters.AddWithValue("@ST", Convert.ToSingle(row.Cells[4].Value));
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+                Con.Close();
+               /// keyMain = 1;
+               /// 
+                UpdateQuantity();
+                SubTotal.Text = total.ToString();
+
+                n++;
+                Reset();
+            }
         }
 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            // setting/getting  data in datagrid to fit text box for edit RESPECTIVELY 
-            //if (customerDataGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
-            //SelectedRows.Count > 0 && ProductsDVG.SelectedRows[0].Cells[1].Value
+
             if (ProductsDVG.Rows[e.RowIndex].Cells[e.ColumnIndex].Value != null)
             {
 #pragma warning disable CS8601 // Possible null reference assignment.
@@ -387,9 +340,9 @@ namespace GPOS
             //PnameTb = ProductsDVG.SelectedRows[0].Cells[1].Value.ToString();
             //PcatCB.SelectedItem = ProductDGV.SelectedRows[0].Cells[2].Value.ToString();
             Pprice = Convert.ToSingle(ProductsDVG.SelectedRows[0].Cells[3].Value.ToString());
-            PStock = Convert.ToInt32(ProductsDVG.SelectedRows[0].Cells[4].Value.ToString());
+            PStock = Convert.ToSingle(ProductsDVG.SelectedRows[0].Cells[4].Value.ToString());
 
-            
+
             if (PnameTb == "")
             {
 
@@ -404,13 +357,18 @@ namespace GPOS
 
 
         }
-        private void ResetButtonColor()
-        {
-            AddBtn.BackColor = Color.Teal; 
-        }// Reset to default button color }
+        
         private void UpdateQuantity()
         {
-            int newQty = PStock - Convert.ToInt32(Quantity.Text);
+            // float newQty = PStock - float.Parse(Quantity.Text);
+            if (!float.TryParse(Quantity.Text, out float quantityValue))
+            {
+                MessageBox.Show("Invalid quantity. Please enter a valid number.", "Input Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return; // Exit method to prevent further errors
+            }
+
+            float newQty = PStock - quantityValue;
+
             try
             {
                 // we open db connection 
@@ -435,9 +393,13 @@ namespace GPOS
         }
         private void button1_Click(object sender, EventArgs e)
         {
+
+
+            
+
             InsertBill();
             CheckDailySales();
-            CheckMonthlySales();    
+            CheckMonthlySales();
 
 
             if (bflag == 1)
@@ -456,11 +418,19 @@ namespace GPOS
                     CusNameCB.Text = "";
                     Del();
 
+                    //GrdTotal.Text = "";
+
 
                 }
             }
-
-
+           
+            BillDGV.Rows.Clear();
+            SubTotal.Text = "";
+            GrdTotal.Text = "";
+            //  GrdTotal.Clear();
+            discountTb.Text = "";
+            VATtb.Text = "";
+            total = 0;
         }
 
         private void label12_Click(object sender, EventArgs e)
@@ -486,6 +456,8 @@ namespace GPOS
 
         private void SupplierDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+
 
         }
 
@@ -527,14 +499,21 @@ namespace GPOS
         string getName;
 
 
+
         private void InsertBill()
         {
 
+            if (string.IsNullOrWhiteSpace(PaymentCB.Text))
+            {
+                PaymentCB.Text = "Cash";
+            }
 
-
-            if (CusIDCB.SelectedIndex == -1 || PaymentCB.SelectedIndex == -1 || GrdTotal.Text == "")
+            if (CusIDCB.SelectedIndex == -1 || GrdTotal.Text == "")
             {
                 MBox1.Show("All fields are required ");
+            } else if (PaymentCB.Text == "")
+            {
+
             }
             else
             {
@@ -563,12 +542,13 @@ namespace GPOS
                     cmd.Parameters.AddWithValue("@PN", getName);
                     //  cmd.Parameters.AddWithValue("@PN", productName);
 #pragma warning disable CS8602 // Dereference of a possibly null reference.
-                    cmd.Parameters.AddWithValue("@PM", PaymentCB.SelectedItem.ToString());
+                    cmd.Parameters.AddWithValue("@PM", PaymentCB.Text.ToString());
 #pragma warning restore CS8602 // Dereference of a possibly null reference.
                     cmd.Parameters.AddWithValue("@AM", Convert.ToDouble(GrdTotal.Text));
 
                     cmd.ExecuteNonQuery();
                     // MBox1.Show("Bill saved");
+
 
 
                     bflag = 1;
@@ -605,11 +585,11 @@ namespace GPOS
 
 
                     float VAT = (Convert.ToSingle(VATtb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
-                   // int getvat = Convert.ToInt32(VATtb.Text) = 0);
-                   // float VAT = getvat * Convert.ToSingle(SubTotal.Text);
+                    // int getvat = Convert.ToInt32(VATtb.Text) = 0);
+                    // float VAT = getvat * Convert.ToSingle(SubTotal.Text);
 
                     TotTaxTb.Text = VAT.ToString();
-      //              VAT = 0;
+                    //              VAT = 0;
                     GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text));
 
                 }
@@ -631,7 +611,7 @@ namespace GPOS
             }
             else if (SubTotal.Text == "")
             {
-               // MBox1.Show("Add Products to Cart ");
+                // MBox1.Show("Add Products to Cart ");
                 MessageBox.Show("Add Products to Cart ");
                 discountTb.Text = "";
             }
@@ -642,7 +622,7 @@ namespace GPOS
 
                     float Disc = (Convert.ToSingle(discountTb.Text) / 100) * Convert.ToSingle(SubTotal.Text);
                     // TotalDiscount.Text = "" + Disc;
-                 //   discountTb.Text += 0;
+                    //   discountTb.Text += 0;
                     TotalDiscount.Text = Disc.ToString();
 
                     GrdTotal.Text = "" + (Convert.ToSingle(SubTotal.Text) + Convert.ToSingle(TotTaxTb.Text) - Convert.ToSingle(TotalDiscount.Text));
@@ -662,94 +642,94 @@ namespace GPOS
         string prodname;
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
-#pragma warning disable CS8602 //1   Dereference of a possibly null reference.
-            //    e.Graphics.DrawString("AHAVAH ODO", new Font("Centry Gothic", 12, FontStyle.Bold), Brushes.Black, new Point(70, 10));
-            //  e.Graphics.DrawString("ENTERPRISE", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(60, 12));
-#pragma warning restore CS8602 // Dereference of a possibly null reference.
-            
-            string contact = "Tel:+233 247 557 094 ";
-            string subtitle = "OVER-THE-COUNTER DRUGSTORE";
-            //string heading = "ID PRODUCT PRICE QUANTITY TOTAL";
+            int pos = 40; // Starting position
+            int gap = 40; // Gap for header and spacing
 
-            // Get the width of the printable area
-            int printableWidth = e.PageBounds.Width;
+            // Header
+            string title = "PAPAYOO ENTERPRISE";
+            string contact = "Tel:+233 246 527 931";
+            string location = "Location: JEMA - KINTAMPO SOUTH";
 
-            // Calculate positions to center text
-            int titleX = (printableWidth / 2) - (int)e.Graphics.MeasureString("EVANSVIC ", new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
-            int subtitleX = (printableWidth / 2) - (int)e.Graphics.MeasureString(subtitle, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
-            int contactX = (printableWidth / 2) - (int)e.Graphics.MeasureString(contact, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
-            //  int headingX = (printableWidth / 2) - (int)e.Graphics.MeasureString(heading, new Font("Century Gothic", 8, FontStyle.Bold)).Width / 2;
-            string location = "Loc: Jema, Kintampo South";
-            int gap = 40;
-            // Draw the text
-            e.Graphics.DrawString("EVANSVIC", new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX + 10, 7));
-            e.Graphics.DrawString(subtitle, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(subtitleX, 22));
-            e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX, 32));
-           // e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50 + 15, 42));
-            e.Graphics.DrawString("Location: Kintampo South, Jema", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40 + gap, 42));
+            // Center header text
+            int titleX = e.MarginBounds.Left + (e.MarginBounds.Width / 2) -
+                         (int)e.Graphics.MeasureString(title, new Font("Century Gothic", 10, FontStyle.Bold)).Width / 2;
+            int contactX = e.MarginBounds.Left + (e.MarginBounds.Width / 6) -
+                           (int)e.Graphics.MeasureString(contact, new Font("Century Gothic", 6, FontStyle.Bold)).Width / 2;
 
-            e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 48));
-            e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(40, 52));
+            e.Graphics.DrawString(title, new Font("Century Gothic", 10, FontStyle.Bold), Brushes.Black, new Point(titleX - 55, pos));
+            pos += 20;
+            e.Graphics.DrawString(contact, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(contactX - 55, pos));
+            pos += 20;
+            e.Graphics.DrawString(location, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
+            pos += 20;
 
-            // Add vertical spacing between heading and ID product line
+            e.Graphics.DrawString("___________________________________________________", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
+            pos += 20;
 
-            // e.Graphics.DrawString(heading, new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(headingX, 80));
+            // Table Header
+            e.Graphics.DrawString("ID PRODUCT QUANTITY PRICE  TOTAL", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
+            pos += 20;
 
-            e.Graphics.DrawString("ID PRODUCT QUANTITY PRICE  TOTAL", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(36, 68));
+            // Table Rows
+            int grandTotal = 0; // Variable to accumulate grand total
             foreach (DataGridViewRow row in BillDGV.Rows)
             {
-                prodid = Convert.ToInt32(row.Cells["Column1"].Value);
-                prodname = "" + row.Cells["Column2"].Value;
-                prodprice = Convert.ToInt32(row.Cells["Column3"].Value);
-                prodqty = Convert.ToInt32(row.Cells["Column4"].Value);
-                tottal = Convert.ToInt32(row.Cells["Column5"].Value);
+                if (row.IsNewRow || row.Cells["Column1"].Value == null) continue;
 
+                int prodid = Convert.ToInt32(row.Cells["Column1"].Value);
+                string prodname = row.Cells["Column2"].Value?.ToString() ?? string.Empty;
+                float prodprice = Convert.ToSingle(row.Cells["Column3"].Value);
+                float prodqty = Convert.ToSingle(row.Cells["Column4"].Value);
+                int tottal = Convert.ToInt32(row.Cells["Column5"].Value);
 
+                grandTotal += tottal; // Add to grand total
 
+                //Con.Open();
+                MySqlCommand cmd = new MySqlCommand(" insert into billdates(ProductName, Quantity, Price, Subtotal, ) values(@PN, @CI, @QT, @PP, @ST)", Con);
+                cmd.Parameters.AddWithValue("@PN", prodname);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                cmd.Parameters.AddWithValue("@QT", prodqty);
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
+                //cmd.Parameters.AddWithValue("@CN", PriceTb.Text);
+                cmd.Parameters.AddWithValue("@PP", prodprice);
+                cmd.Parameters.AddWithValue("@ST", tottal);
+                //  cmd.Parameters.AddWithValue("@PN", productName);
+#pragma warning disable CS8602 // Dereference of a possibly null reference.
+                // cmd.Parameters.AddWithValue("@PM", PaymentCB.SelectedItem.ToString());
+#pragma warning restore CS8602 // Dereference of a possibly null reference.
 
+                e.Graphics.DrawString(prodid.ToString(), new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
+                e.Graphics.DrawString(prodname, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 60, pos));
+                e.Graphics.DrawString(prodprice.ToString(), new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left + 15, pos));
+                e.Graphics.DrawString(prodqty.ToString(), new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left + 55, pos));
+                e.Graphics.DrawString(tottal.ToString(), new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left + 75, pos));
 
-                // e.Graphics.DrawString("" + prodid, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Blue, new Point(50, pos + 40));
-                e.Graphics.DrawString("" + prodname, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(45, pos + 40));
-                e.Graphics.DrawString(" " + prodprice, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(120, pos + 40));
-                e.Graphics.DrawString("" + prodqty, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(170, pos + 40));
-                e.Graphics.DrawString("" + tottal, new Font("Centry Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(235, pos + 40));
+                pos += 20;
 
-
-
-                pos = pos + 40;
-
-
+                if (pos > e.MarginBounds.Bottom - 40) // Check for page overflow
+                {
+                    e.HasMorePages = true;
+                    return;
+                }
             }
-#pragma warning disable CS0219 // Variable is assigned but its value is never used
-            int lineSpacing = 20;
-#pragma warning restore CS0219 // Variable is assigned but its value is never used
 
-            e.Graphics.DrawString("******Powered by: GrockTech Consult******", new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(50, pos + 80));
+            // Print Grand Total
+            pos += 20; // Add spacing
+            e.Graphics.DrawString($"Grand Total: {grandTotal}", new Font("Century Gothic", 8, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
+            pos += 20;
 
+            // Print Footer
+            string footerText = "Thank you for shopping with us!";
+            e.Graphics.DrawString(footerText, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
+            pos += 20;
 
-            e.Graphics.DrawString("Grand Total: GH¢" + GrdTotal.Text + ".00", new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 40));
-            //e.Graphics.DrawString("***************************GrockTech Consult**********************" , new Font("Centry Gothic", 8, FontStyle.Bold), Brushes.Crimson, new Point(50, pos + 50 + lineSpacing));
-            e.Graphics.DrawLine(Pens.Black, new Point(50, pos + 70), new Point(250, pos + 70));
+            string footerNote = "Visit Again!";
+            e.Graphics.DrawString(footerNote, new Font("Century Gothic", 6, FontStyle.Bold), Brushes.Black, new Point(e.MarginBounds.Left - 80, pos));
 
-            // Draw the footer text
-
-            BillDGV.Rows.Clear();
-            BillDGV.Refresh();
-            //Del();
-            pos = 100;
-            GrdTotal.Text = "";
-            //  tot n  = 0;
-            total = 0;
-            SubTotal.Text = "";
-
-            n = 0;
-
-
-            //    Subtotal = Convert.ToInt32(Quantity.Text) * Pprice;
-
-
-
+            // Ensure no more pages
+            e.HasMorePages = false;
         }
+
 
         private void label8_Click(object sender, EventArgs e)
         {
@@ -772,21 +752,7 @@ namespace GPOS
         {
 
         }
-     /* private void retrieveSale()
-        {
-            string querry =@"SELECT
-  DATE_FORMAT(STR_TO_DATE(transaction_date, '%Y-%m-%d'), '%Y-%m') AS month,
-  SUM(amount) AS total_sales
-FROM
-  sales_transactions
-WHERE
-  YEAR(STR_TO_DATE(transaction_date, '%Y-%m-%d')) = YEAR(CURDATE()) AND
-  MONTH(STR_TO_DATE(transaction_date, '%Y-%m-%d')) = MONTH(CURDATE())
-GROUP BY
-  DATE_FORMAT(STR_TO_DATE(transaction_date, '%Y-%m-%d'), '%Y-%m');
-            ";
-        }
-       */
+
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
@@ -856,6 +822,18 @@ GROUP BY
         }
 
         private void panel5_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Form1 vd = new Form1();
+            vd.Show();
+            vd.TopMost = true;
+        }
+
+        private void discountTb_TextChanged(object sender, EventArgs e)
         {
 
         }
